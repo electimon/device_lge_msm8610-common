@@ -150,8 +150,7 @@ PRODUCT_PACKAGES += \
     curl \
     libbson \
     libcurl \
-    tcpdump \
-    Torch
+    tcpdump
 
 # Misc
 PRODUCT_PACKAGES += \
