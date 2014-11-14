@@ -455,4 +455,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.vc_call_vol_steps=6 \
     persist.data.sbp.update=0 \
     persist.radio.rat_on=legacy \
-    ro.lge.proximity.delay=25 \
+    ro.lge.proximity.delay=25
