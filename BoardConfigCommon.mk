@@ -51,25 +51,25 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 
 # Global flags
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DLG_CAMERA_HARDWARE
-
-# QCOM BSP
-TARGET_USES_QCOM_BSP := true
-COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
+COMMON_GLOBAL_CFLAGS += -DLG_CAMERA_HARDWARE
 
 # Audio
 AUDIO_FEATURE_DISABLED_FM := false
-AUDIO_FEATURE_DISABLED_SSR := true
 BOARD_HAVE_QCOM_FM := true
-AUDIO_FEATURE_DISABLED_ANC_HEADSET := true
-AUDIO_FEATURE_DISABLED_DS1_DOLBY_DDP := true
+AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := true
+AUDIO_FEATURE_ENABLED_EXTN_FORMATS := true
+AUDIO_FEATURE_ENABLED_FLUENCE := true
+AUDIO_FEATURE_ENABLED_FM := true
+AUDIO_FEATURE_ENABLED_INCALL_MUSIC := true
+AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
+AUDIO_FEATURE_ENABLED_PCM_OFFLOAD := true
+AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
+TARGET_USES_QCOM_MM_AUDIO := true
 BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_FLUENCE_INCALL := true
 BOARD_USES_SEPERATED_AUDIO_INPUT := true
 BOARD_USES_SEPERATED_VOICE_SPEAKER := true
-TARGET_QCOM_AUDIO_VARIANT := caf
 TARGET_USES_QCOM_COMPRESSED_AUDIO := true
-TARGET_QCOM_MEDIA_VARIANT := caf-new
 
 # GPS
 TARGET_NO_RPC := true
@@ -77,7 +77,6 @@ TARGET_NO_RPC := true
 # Graphics
 BOARD_EGL_CFG := device/lge/msm8610-common/prebuilt/egl.cfg
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
-TARGET_QCOM_DISPLAY_VARIANT := caf-new
 USE_OPENGL_RENDERER := true
 TARGET_USES_C2D_COMPOSITION :=
 TARGET_USES_ION := true
@@ -120,9 +119,6 @@ TARGET_FORCE_CPU_UPLOAD := true
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
-
-# QCOM enhanced A/V
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
@@ -179,50 +175,50 @@ TARGET_RECOVERY_QCOM_RTC_FIX := true
 BOARD_SEPOLICY_DIRS += \
 	device/lge/msm8610-common/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-	adbd.te \
-	app.te \
-	bluetooth_loader.te \
-	bridge.te \
-	camera.te \
-	device.te \
-	dhcp.te \
-	dnsmasq.te \
-	domain.te \
-	drmserver.te \
-	file_contexts \
-	file.te \
-	hostapd.te \
-	init_shell.te \
-	init.te \
-	libqc-opt.te \
-	mediaserver.te \
-	mpdecision.te \
-	netd.te \
-	netmgrd.te \
-	nfc.te \
-	property_contexts \
-	property.te \
-	qcom.te \
-	qmux.te \
-	radio.te \
-	rild.te \
-	rmt.te \
-	sdcard_internal.te \
-	sdcardd.te \
-	sensors.te \
-	shell.te \
-	surfaceflinger.te \
-	system.te \
-	tee.te \
-	te_macros \
-	thermald.te \
-	ueventd.te \
-	vold.te \
-	wpa_supplicant.te \
-	zygote.te
+#BOARD_SEPOLICY_UNION += \
+#	adbd.te \
+#	app.te \
+#	bluetooth_loader.te \
+#	bridge.te \
+#	camera.te \
+#	device.te \
+#	dhcp.te \
+#	dnsmasq.te \
+#	domain.te \
+#	drmserver.te \
+#	file_contexts \
+#	file.te \
+#	hostapd.te \
+#	init_shell.te \
+#	init.te \
+#	libqc-opt.te \
+#	mediaserver.te \
+#	mpdecision.te \
+#	netd.te \
+#	netmgrd.te \
+#	nfc.te \
+#	property_contexts \
+#	property.te \
+#	qcom.te \
+#	qmux.te \
+#	radio.te \
+#	rild.te \
+#	rmt.te \
+#	sdcard_internal.te \
+#	sdcardd.te \
+#	sensors.te \
+#	shell.te \
+#	surfaceflinger.te \
+#	system.te \
+#	tee.te \
+#	te_macros \
+#	thermald.te \
+#	ueventd.te \
+#	vold.te \
+#	wpa_supplicant.te \
+#	zygote.te
 
-ifneq ($(TARGET_BUILD_VARIANT),user)
-	BOARD_SEPOLICY_UNION += su.te
-endif
+#ifneq ($(TARGET_BUILD_VARIANT),user)
+#	BOARD_SEPOLICY_UNION += su.te
+#endif
 

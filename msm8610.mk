@@ -122,7 +122,6 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    audio_policy.msm8610 \
     audio.primary.msm8610 \
     audio.a2dp.default \
     audio.usb.default \
@@ -180,6 +179,10 @@ PRODUCT_PACKAGES += \
     p2p_supplicant_overlay.conf \
     wpa_supplicant_overlay.conf \
     libwcnss_qmi \
+    dhcpcd.conf \
+    hostapd \
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 # Charger
 PRODUCT_PACKAGES += charger charger_res_images
@@ -381,16 +384,16 @@ $(call inherit-product, vendor/lge/msm8610/msm8610-vendor.mk)
 
 PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
-    rild.libargs=-d /dev/smd0 \
-    persist.rild.nitz_plmn= \
-    persist.rild.nitz_long_ons_0= \
-    persist.rild.nitz_long_ons_1= \
-    persist.rild.nitz_long_ons_2= \
-    persist.rild.nitz_long_ons_3= \
-    persist.rild.nitz_short_ons_0= \
-    persist.rild.nitz_short_ons_1= \
-    persist.rild.nitz_short_ons_2= \
-    persist.rild.nitz_short_ons_3= \
+    rild.libargs=-d[SPACE]/dev/smd0 \
+    persist.rild.nitz_plmn="" \
+    persist.rild.nitz_long_ons_0="" \
+    persist.rild.nitz_long_ons_1="" \
+    persist.rild.nitz_long_ons_2="" \
+    persist.rild.nitz_long_ons_3="" \
+    persist.rild.nitz_short_ons_0="" \
+    persist.rild.nitz_short_ons_1="" \
+    persist.rild.nitz_short_ons_2="" \
+    persist.rild.nitz_short_ons_3="" \
     ril.subscription.types=NV,RUIM \
     DEVICE_PROVISIONED=1 \
     persist.radio.msgtunnel.start=false \
@@ -442,7 +445,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.lge.irrc.type=sw \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0 \
-    tunnel.audio.encode = true \
+    tunnel.audio.encode=true \
     persist.gsm.sms.forcegsm7=1 \
     ro.qc.sdk.izat.premium_enabled=1 \
     ro.qc.sdk.izat.service_mask=0x0 \
@@ -453,4 +456,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.vc_call_vol_steps=6 \
     persist.data.sbp.update=0 \
     persist.radio.rat_on=legacy \
+    camera2.portability.force_api=1 \
     ro.lge.proximity.delay=25
