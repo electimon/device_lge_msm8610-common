@@ -172,8 +172,8 @@ BOARD_HAS_NO_MISC_PARTITION := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 
 # SELinux
-BOARD_SEPOLICY_DIRS += \
-	device/lge/msm8610-common/sepolicy
+#BOARD_SEPOLICY_DIRS += \
+#	device/lge/msm8610-common/sepolicy
 
 #BOARD_SEPOLICY_UNION += \
 #	adbd.te \
