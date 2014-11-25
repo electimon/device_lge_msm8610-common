@@ -230,6 +230,8 @@ on boot
 # byungil.choi@lge.com for SW IrRC
     chown media media /dev/msm_IRRC_pcm_dec
     chmod 0660 /dev/msm_IRRC_pcm_dec
+    # display color calibration
+    chown system system /sys/devices/virtual/graphics/fb0/kcal
 
 # msm specific files that need to be created on /data
 on post-fs-data
