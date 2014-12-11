@@ -304,7 +304,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     lpa.decode=true \
-    qcom.hw.aac.encoder=true \
     af.resampler.quality=255 \
     persist.audio.lowlatency.rec=false
 
@@ -342,7 +341,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     av.streaming.offload.enable=false \
     audio.offload.pcm.enable=false \
     mm.enable.smoothstreaming=true \
-    qcom.hw.aac.encoder=true \
     persist.audio.calfile0=/etc/ACDB/Bluetooth_cal.acdb \
     persist.audio.calfile1=/etc/ACDB/General_cal.acdb \
     persist.audio.calfile2=/etc/ACDB/Global_cal.acdb \
