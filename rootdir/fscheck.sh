@@ -9,3 +9,10 @@ else
   /sbin/bbx cp -f /fstab_f2fs.msm8610 /etc/recovery.fstab
   /sbin/bbx mv -f /fstab_f2fs.msm8610 /fstab.msm8610
 fi
+
+MODEL=`/sbin/bbx cat /proc/cmdline | /sbin/bbx awk '{print $16}'| /sbin/bbx awk -F= '{print $2}'`
+
+if [ "$MODEL" == "LG-D170" ]
+then
+    /sbin/bbx echo "/dev/block/zram0 none swap defaults zramsize=268435456" >> /fstab_f2fs.msm8610
+fi
