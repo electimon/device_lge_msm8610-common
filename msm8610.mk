@@ -349,6 +349,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.calfile5=/etc/ACDB/Headset_cal.acdb \
     persist.audio.calfile6=/etc/ACDB/Speaker_cal.acdb
 
+# Media codecs
+PRODUCT_COPY_FILES += \
+    frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
+
 # Radio and Telephony
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.use_data_netmgrd=true \
