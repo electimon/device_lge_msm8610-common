@@ -58,11 +58,6 @@ public class LgeW7RIL extends RIL implements CommandsInterface {
     boolean RILJ_LOGV = true;
     boolean RILJ_LOGD = true;
 
-    static final int RIL_REQUEST_HTC_GET_DATA_CALL_PROFILE = 5505;
-    static final int RIL_REQUEST_HTC_SET_UICC_SUBSCRIPTION = 5506;
-    static final int RIL_REQUEST_HTC_SET_DATA_SUBSCRIPTION = 5507;
-    static final int RIL_UNSOL_HTC_UICC_SUBSCRIPTION_STATUS_CHANGED = 5760;
-
     private final int RIL_INT_RADIO_OFF = 0;
     private final int RIL_INT_RADIO_UNAVALIABLE = 1;
     private final int RIL_INT_RADIO_ON = 2;
@@ -80,41 +75,6 @@ public class LgeW7RIL extends RIL implements CommandsInterface {
         super(context, networkMode, cdmaSubscription);
         mSetPreferredNetworkType = -1;
         mQANElements = 5;
-    }
-
-    @Override
-    public void
-    getDataCallProfile(int appType, Message result) {
-        RILRequest rr = RILRequest.obtain(
-                RIL_REQUEST_HTC_GET_DATA_CALL_PROFILE, result);
-
-        // count of ints
-        rr.mParcel.writeInt(1);
-        rr.mParcel.writeInt(appType);
-
-        if (RILJ_LOGD) {
-            riljLog(rr.serialString() + "> " + requestToString(rr.mRequest)
-                   + " : " + appType);
-        }
-        send(rr);
-    }
-
-    @Override
-    public void setUiccSubscription(int slotId, int appIndex, int subId,
-            int subStatus, Message result) {
-        //Note: This RIL request is also valid for SIM and RUIM (ICC card)
-        RILRequest rr = RILRequest.obtain(RIL_REQUEST_HTC_SET_UICC_SUBSCRIPTION, result);
-
-        if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest)
-                + " slot: " + slotId + " appIndex: " + appIndex
-                + " subId: " + subId + " subStatus: " + subStatus);
-
-        rr.mParcel.writeInt(slotId);
-        rr.mParcel.writeInt(appIndex);
-        rr.mParcel.writeInt(subId);
-        rr.mParcel.writeInt(subStatus);
-
-        send(rr);
     }
 
     @Override public void
@@ -262,6 +222,45 @@ public class LgeW7RIL extends RIL implements CommandsInterface {
         if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest));
 
         send(rr);
+    }
+
+    @Override
+    public void setPreferredNetworkType(int networkType , Message response) {
+        /**
+          * If not using a USIM, ignore LTE mode and go to 3G
+          */
+        if (!mUSIM && networkType == RILConstants.NETWORK_MODE_LTE_GSM_WCDMA &&
+                 mSetPreferredNetworkType >= RILConstants.NETWORK_MODE_WCDMA_PREF) {
+            networkType = RILConstants.NETWORK_MODE_WCDMA_PREF;
+        }
+        mSetPreferredNetworkType = networkType;
+
+        super.setPreferredNetworkType(networkType, response);
+    }
+
+    @Override
+    protected Object
+    responseSignalStrength(Parcel p) {
+        int numInts = 12;
+        int response[];
+
+        boolean oldRil = needsOldRilFeature("signalstrength");
+        boolean noLte = false;
+
+        /* TODO: Add SignalStrength class to match RIL_SignalStrength */
+        response = new int[numInts];
+        for (int i = 0 ; i < numInts ; i++) {
+            if ((oldRil || noLte) && i > 6 && i < 12) {
+                response[i] = -1;
+            } else {
+                response[i] = p.readInt();
+            }
+            if (i == 7 && response[i] == 99) {
+                response[i] = -1;
+                noLte = true;
+            }
+        }
+        return new SignalStrength(response[0], response[1], response[2], response[3], response[4], response[5], response[6], response[7],response[8], response[9], response[10], response[11], true);
     }
 
     @Override
