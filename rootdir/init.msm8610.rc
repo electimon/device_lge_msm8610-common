@@ -12,8 +12,6 @@ on init
     chmod 755 /fscheck.sh
     exec /fscheck.sh
 
-    write /sys/class/input/input1/enable 1
-
     # CM: We use our own ril-daemon service definition, see mmi-ril-daemon
     stop ril-daemon
 
@@ -148,3 +146,7 @@ service mmi-ril-daemon /system/bin/rild
     socket cutback stream 660 media radio
     user root
     group radio cache inet misc audio sdcard_rw qcom_oncrpc qcom_diag log net_raw diag
+
+service sensord /system/bin/sensord
+    class late_start
+    oneshot
