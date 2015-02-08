@@ -463,3 +463,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.rat_on=legacy \
     camera2.portability.force_api=1 \
     ro.lge.proximity.delay=25
+
+# CmUpdater
+PRODUCT_PROPERTY_OVERRIDES += \
+cm.updater.uri=http://vasy.ru/CyanogenModOTA/api
