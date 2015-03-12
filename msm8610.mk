@@ -389,7 +389,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
-$(call inherit-product, vendor/lge/msm8610/msm8610-vendor.mk)
+$(call inherit-product, vendor/lge/msm8610-common/msm8610-vendor.mk)
 
 PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
