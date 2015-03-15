@@ -114,7 +114,8 @@ PRODUCT_COPY_FILES += \
     device/lge/msm8610-common/rootdir/init.zetaw.usb.sh:root/init.zetaw.usb.sh \
     device/lge/msm8610-common/rootdir/ueventd.msm8610.rc:root/ueventd.msm8610.rc \
     device/lge/msm8610-common/rootdir/sbin/bbx:root/sbin/bbx \
-    device/lge/msm8610-common/rootdir/fscheck.sh:root/fscheck.sh
+    device/lge/msm8610-common/rootdir/fscheck.sh:root/fscheck.sh \
+    device/lge/msm8610-common/prebuilt/etc/init.zetaw.bt.sh:system/etc/init.zetaw.bt.sh 
 
 # TWRP
 PRODUCT_COPY_FILES += \
