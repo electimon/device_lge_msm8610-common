@@ -154,7 +154,8 @@ PRODUCT_PACKAGES += \
     curl \
     libbson \
     libcurl \
-    tcpdump
+    tcpdump \
+    libxml2
 
 # Misc
 PRODUCT_PACKAGES += \
