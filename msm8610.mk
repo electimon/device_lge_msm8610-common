@@ -89,8 +89,6 @@ PRODUCT_COPY_FILES += \
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    device/lge/msm8610-common/rootdir/fstab.msm8610:root/fstab.msm8610 \
-    device/lge/msm8610-common/rootdir/fstab_f2fs.msm8610:root/fstab_f2fs.msm8610 \
     device/lge/msm8610-common/rootdir/init.class_main.sh:root/init.class_main.sh \
     device/lge/msm8610-common/rootdir/init.lge.early.rc:root/init.lge.early.rc \
     device/lge/msm8610-common/rootdir/init.lge.log.rc:root/init.lge.log.rc \
@@ -113,8 +111,6 @@ PRODUCT_COPY_FILES += \
     device/lge/msm8610-common/rootdir/init.zetaw.usb.rc:root/init.zetaw.usb.rc \
     device/lge/msm8610-common/rootdir/init.zetaw.usb.sh:root/init.zetaw.usb.sh \
     device/lge/msm8610-common/rootdir/ueventd.msm8610.rc:root/ueventd.msm8610.rc \
-    device/lge/msm8610-common/rootdir/sbin/bbx:root/sbin/bbx \
-    device/lge/msm8610-common/rootdir/fscheck.sh:root/fscheck.sh \
     device/lge/msm8610-common/prebuilt/etc/init.zetaw.bt.sh:system/etc/init.zetaw.bt.sh 
 
 # TWRP
