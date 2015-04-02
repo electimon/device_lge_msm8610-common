@@ -45,7 +45,7 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8610
 # Kernel image
 BOARD_KERNEL_SEPARATED_DT := true
 TARGET_KERNEL_SOURCE := kernel/lge/msm8610
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 user_debug=30 msm_rtb.filter=0x37 androidboot.hardware=msm8610 androidboot.selinux=disabled
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 user_debug=30 msm_rtb.filter=0x37 androidboot.hardware=msm8610
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
@@ -170,54 +170,46 @@ HAVE_SELINUX := true
 BOARD_HAS_NO_MISC_PARTITION := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 
-# SELinux
-#BOARD_SEPOLICY_DIRS += \
-#	device/lge/msm8610-common/sepolicy
+# SELinux policies
+# qcom sepolicy
+include device/qcom/sepolicy/sepolicy.mk
 
-#BOARD_SEPOLICY_UNION += \
-#	adbd.te \
-#	app.te \
-#	bluetooth_loader.te \
-#	bridge.te \
-#	camera.te \
-#	device.te \
-#	dhcp.te \
-#	dnsmasq.te \
-#	domain.te \
-#	drmserver.te \
-#	file_contexts \
-#	file.te \
-#	hostapd.te \
-#	init_shell.te \
-#	init.te \
-#	libqc-opt.te \
-#	mediaserver.te \
-#	mpdecision.te \
-#	netd.te \
-#	netmgrd.te \
-#	nfc.te \
-#	property_contexts \
-#	property.te \
-#	qcom.te \
-#	qmux.te \
-#	radio.te \
-#	rild.te \
-#	rmt.te \
-#	sdcard_internal.te \
-#	sdcardd.te \
-#	sensors.te \
-#	shell.te \
-#	surfaceflinger.te \
-#	system.te \
-#	tee.te \
-#	te_macros \
-#	thermald.te \
-#	ueventd.te \
-#	vold.te \
-#	wpa_supplicant.te \
-#	zygote.te
+BOARD_SEPOLICY_DIRS += \
+        device/lge/msm8610-common/sepolicy
 
-#ifneq ($(TARGET_BUILD_VARIANT),user)
-#	BOARD_SEPOLICY_UNION += su.te
-#endif
-
+BOARD_SEPOLICY_UNION += \
+    device.te \
+    file_contexts \
+    file.te \
+    genfs_contexts \
+    hostapd.te \
+    init_shell.te \
+    init.te \
+    kcal_dev.te \
+    kernel.te \
+    keystore.te \
+    lge_touch_sysfs.te \
+    mediaserver.te \
+    mm-pp-daemon.te \
+    mm-qcamerad.te \
+    mpdecision.te \
+    netd.te \
+    nfc.te \
+    platform_app.te \
+    property_contexts \
+    property.te \
+    radio.te \
+    rmt_storage.te \
+    sensors.te \
+    servicemanager.te \
+    sysinit.te \
+    system_app.te \
+    system_server.te \
+    tee.te \
+    thermal-engine.te \
+    ueventd.te \
+    untrusted_app.te \
+    vibe_data_file.te \
+    vold.te \
+    wcnss_service.te \
+    wpa.te
