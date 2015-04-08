@@ -469,7 +469,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.sbp.update=0 \
     persist.radio.rat_on=legacy \
     camera2.portability.force_api=1 \
-    ro.lge.proximity.delay=25
+    ro.lge.proximity.delay=25 \
+    ro.telephony.ril_class=LgeRIL
 
 # CmUpdater
 PRODUCT_PROPERTY_OVERRIDES += \
