@@ -427,9 +427,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true \
     persist.lg.data.autoprof.msim=true \
     persist.cne.feature=1 \
-    debug.sf.fb_always_on=1 \
-    persist.hwc.mdpcomp.enable=true \
-    dev.pm.dyn_samplingrate=1 \
     mmp.enable.3g2=true \
     media.aac_51_output_enabled=true \
     mm.enable.smoothstreaming=true \
@@ -470,7 +467,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.rat_on=legacy \
     camera2.portability.force_api=1 \
     ro.lge.proximity.delay=25 \
-    ro.telephony.ril_class=LgeRIL
+    ro.telephony.ril_class=LgeRIL \
+    debug.sf.fb_always_on=1 \
+    debug.composition.type=gpu \
+    debug.gralloc.map_fb_memory=0 \
+    debug.hwc.dynThreshold=1.5 \
+    dalvik.vm.heapsize=36m \
+    dev.pm.dyn_samplingrate=1
 
 # CmUpdater
 PRODUCT_PROPERTY_OVERRIDES += \
