@@ -66,7 +66,6 @@ PRODUCT_COPY_FILES += \
     device/lge/msm8610-common/prebuilt/etc/audio_effects.conf:system/etc/audio_effects.conf \
     device/lge/msm8610-common/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml \
     device/lge/msm8610-common/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
-    device/lge/msm8610-common/prebuilt/etc/thermal-engine-8610.conf:system/etc/thermal-engine-8610.conf \
     device/lge/msm8610-common/prebuilt/usr/idc/touch_dev.idc:system/usr/idc/touch_dev.idc \
     device/lge/msm8610-common/prebuilt/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     device/lge/msm8610-common/prebuilt/etc/init.zetaw.fm.sh:system/etc/init.zetaw.fm.sh \
