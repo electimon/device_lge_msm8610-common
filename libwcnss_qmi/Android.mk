@@ -14,6 +14,7 @@
 # limitations under the License.
 #
 
+ifneq ($(filter w5 w3ds,$(TARGET_DEVICE)),)
 
 LOCAL_PATH := $(call my-dir)
 
@@ -30,3 +31,5 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := libwcnss_qmi
 
 include $(BUILD_SHARED_LIBRARY)
+
+endif

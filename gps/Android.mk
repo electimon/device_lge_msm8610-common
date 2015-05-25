@@ -14,6 +14,10 @@
 # limitations under the License.
 #
 
+ifneq ($(filter w5 w3ds,$(TARGET_DEVICE)),)
+
 LOCAL_PATH := $(call my-dir)
 
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
+
+endif
