@@ -87,8 +87,6 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 TARGET_POWERHAL_VARIANT := qcom
 TARGET_USES_CPU_BOOST_HINT := true
 
-TARGET_HW_DISK_ENCRYPTION := true
-
 # Hardware tunables framework
 BOARD_HARDWARE_CLASS := device/lge/msm8610-common/cmhw/
 
