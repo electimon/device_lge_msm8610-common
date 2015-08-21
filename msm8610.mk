@@ -116,11 +116,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/msm8610-common/rootdir/twrp.fstab:recovery/root/etc/twrp.fstab
 
-# Offmode Charging
-PRODUCT_PACKAGES += \
-    charger_res_w7 \
-    charger_w7
-
 # Audio
 PRODUCT_PACKAGES += \
     audio.primary.msm8610 \

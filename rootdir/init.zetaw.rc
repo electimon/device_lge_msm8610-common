@@ -781,8 +781,8 @@ on property:ro.bootmode=chargerlogo
     class_reset late_start
     class_start charger
 
-service charger /charger
-    class charger
+#service charger /charger
+#    class charger
 
 # Mobile DM Router
 service lg_dm_router /system/bin/lg_dm_router

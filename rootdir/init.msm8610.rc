@@ -109,7 +109,7 @@ service audiod /system/bin/audiod
    user system
    group system
 
-service charger /sbin/charger_w7
+service charger /charger
  class charger
  critical
 
