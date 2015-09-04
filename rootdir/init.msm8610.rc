@@ -102,6 +102,7 @@ service qrngp /system/bin/qrngp
     disabled
 
 on property:sys.boot_completed=1
+    write /sys/block/mmcblk0/queue/scheduler fiops
     start qrngp
 
 service audiod /system/bin/audiod
