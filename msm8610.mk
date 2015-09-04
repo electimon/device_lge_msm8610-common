@@ -461,6 +461,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.rat_on=legacy \
     camera2.portability.force_api=1 \
     ro.lge.proximity.delay=25 \
+    dalvik.vm.dex2oat-flags=--no-watch-dog \
     ro.telephony.ril_class=LgeRIL
 
 # CmUpdater
