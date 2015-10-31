@@ -1,5 +1,7 @@
 LOCAL_PATH:= $(call my-dir)
 
+ifneq ($(filter w5 w3ds,$(TARGET_DEVICE)),)
+
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := com.cyanogenmod.keyhandler
@@ -8,3 +10,4 @@ LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_JAVA_LIBRARY)
 
+endif
