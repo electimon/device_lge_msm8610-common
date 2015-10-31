@@ -184,9 +184,6 @@ PRODUCT_PACKAGES += \
 # Charger
 PRODUCT_PACKAGES += charger charger_res_images
 
-# QRNGD
-PRODUCT_PACKAGES += qrngd
-
 # Ebtables
 PRODUCT_PACKAGES += \
     ebtables \
@@ -214,16 +211,14 @@ PRODUCT_PACKAGES += \
     memtrack.msm8610 \
     power.msm8610
 
-# QRNG
-PRODUCT_PACKAGES += qrngp
-
 # Utilities
 PRODUCT_PACKAGES += \
     charge_only_mode \
     mkfs.f2fs \
     fsck.f2fs \
     fibmap.f2fs \
-    wcnss_service
+    wcnss_service \
+    librmnetctl
 
 # EGL config
 PRODUCT_COPY_FILES += \
@@ -391,18 +386,9 @@ $(call inherit-product, vendor/lge/msm8610-common/msm8610-vendor.mk)
 PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
     rild.libargs=-d[SPACE]/dev/smd0 \
-    persist.rild.nitz_plmn="" \
-    persist.rild.nitz_long_ons_0="" \
-    persist.rild.nitz_long_ons_1="" \
-    persist.rild.nitz_long_ons_2="" \
-    persist.rild.nitz_long_ons_3="" \
-    persist.rild.nitz_short_ons_0="" \
-    persist.rild.nitz_short_ons_1="" \
-    persist.rild.nitz_short_ons_2="" \
-    persist.rild.nitz_short_ons_3="" \
     ril.subscription.types=NV,RUIM \
+    persist.radio.proc_nw_scan=0 \
     DEVICE_PROVISIONED=1 \
-    persist.radio.msgtunnel.start=false \
     telephony.lteOnCdmaDevice=0 \
     ro.telephony.default_network=0 \
     ro.ril.enable.amr.wideband=1 \
@@ -419,8 +405,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     wlan.lge.supportsimaka=YES \
     wifi.lge.hanglessid=false \
     drm.service.enabled=true \
-    persist.lg.data.autoprof.msim=true \
-    persist.cne.feature=1 \
     mmp.enable.3g2=true \
     media.aac_51_output_enabled=true \
     mm.enable.smoothstreaming=true \
@@ -458,11 +442,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.service.crash.enable=0 \
     ro.config.vc_call_vol_steps=6 \
     persist.data.sbp.update=0 \
-    persist.radio.rat_on=legacy \
     camera2.portability.force_api=1 \
     ro.lge.proximity.delay=25 \
-    dalvik.vm.dex2oat-flags=--no-watch-dog \
-    ro.telephony.ril_class=LgeRIL
+    dalvik.vm.dex2oat-flags=--no-watch-dog
 
 # CmUpdater
 PRODUCT_PROPERTY_OVERRIDES += \
