@@ -1,6 +1,7 @@
 import /init.zetaw.rc
 import /init.msm8610.usb.rc
 import /init.msm8610_product.rc
+import /init.target.rc
 
 on early-init
     mkdir /firmware 0771 system system
@@ -118,7 +119,6 @@ on charger
  class_start charger
 
 on boot
-
     chown system system /sys/class/power_supply/battery/pseudo_batt
 
 service adsprpcd /system/bin/adsprpcd
